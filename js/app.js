@@ -115,7 +115,7 @@
   const proof = `
   <section class="block block-dark" id="proof">
     <div class="block-head"><h2>Real beats templates. By a lot.</h2></div>
-    <p class="lead">I reviewed a local pet store’s Instagram. Their Reels made from generic franchise graphics got 53 to 86 views. Reels of real dogs in their own store got 252 to 587. That’s 5 to 10 times more people.</p>
+    <p class="lead">I reviewed a local pet store’s Instagram. Their Reels made from generic franchise graphics got 53 to 86 views. Reels of real dogs in their own store got 252 to 587. That’s 3 to 11 times more people.</p>
     <div class="range" role="img" aria-label="Views per Reel: template graphics 53 to 86, real dogs in the store 252 to 587">
       ${bar(pr.template, 'is-template')}${bar(pr.real, 'is-real')}
       <div class="range-axis" aria-hidden="true"><span>0</span><span>200</span><span>400</span><span>600 views per Reel</span></div>
@@ -149,8 +149,8 @@
           <li>5–10 miles around ${town}</li>
           ${AUDIENCE[p.type].map(a => `<li${/21\+/.test(a) ? ' class="age"' : ''}>${h(a)}</li>`).join('')}
         </ul>
-        ${p.type === 'liquor' ? `<p class="rules"><b>Built for alcohol rules.</b> Ads are shown to ages 21+ only, as Meta requires. No giveaways, contests or buy-one-get-one deals without checking NJ ABC rules first. Tastings, new arrivals and staff picks are fine to promote.</p>` : ''}
-        <p class="small">You pay Meta directly for the ads, usually $5 to $20 a day. I build, target and report on them every month: how many people saw the ad, clicked, called or asked for directions.</p>
+        ${p.type === 'liquor' ? `<p class="rules"><b>Built for alcohol rules.</b> Your Facebook and Instagram pages are set to ages 21+, and every ad targets ages 21+ only. No giveaways, contests or buy-one-get-one offers, which NJ ABC restricts. Tastings are promoted only when they’re free, in your store and for guests 21+.</p>` : ''}
+        <p class="small">You pay Meta directly for the ad budget, usually $5 to $20 a day, separate from your monthly package. I build, target and report on them every month: how many people saw the ad, clicked, called or asked for directions.</p>
       </div>
     </div>
   </section>`;
