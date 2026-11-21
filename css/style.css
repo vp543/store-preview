@@ -62,8 +62,9 @@ a { color: inherit; }
 .hero-note { font-size: 14px; color: #D9C8EA; }
 @media (min-width: 900px) {
   .hero { padding: 72px 32px 64px; }
-  .hero-lede, .hero-mini, .hero-note { margin-left: auto; }
   .hero > .hero-lede { max-width: 1080px; padding-right: 50%; }
+  .hero > .hero-mini { position: absolute; top: 110px; right: max(40px, calc(50% - 540px)); width: 440px; margin: 0; }
+  .hero > .hero-mini .mini { width: 33%; max-width: none; }
 }
 
 /* ---------- blocks ---------- */
@@ -257,7 +258,7 @@ a { color: inherit; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 800;
   border: 3px solid var(--plum); border-radius: 14px; padding: 14px 20px; box-shadow: 4px 4px 0 var(--plum);
-  font-family: var(--display); font-size: 18px; min-height: 52px; overflow-wrap: anywhere;
+  font-family: var(--display); font-size: 18px; min-height: 52px; overflow-wrap: anywhere; text-align: center;
 }
 .btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--plum); }
 .btn-coral { background: var(--coral); color: #fff; }
