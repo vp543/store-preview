@@ -27,7 +27,7 @@
   // ---------- sections ----------
   const hero = `
   <header class="hero">
-    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="dots" aria-hidden="true"><i></i><svg class="rings" viewBox="0 0 400 400"><circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="140"/><circle cx="200" cy="200" r="92"/></svg></div>
     <p class="hero-kicker">Made for</p>
     <h1 class="hero-name"><span>${store}</span></h1>
     <p class="hero-town">${p.town === L.DEFAULTS.town ? ({ liquor: 'a liquor store near you', groomer: 'a groomer near you', store: 'a local store near you' })[p.type] : town + ', NJ'}</p>
@@ -128,12 +128,12 @@
     <div class="block-head"><h2>Ads only your neighbors see</h2>${sample}</div>
     <div class="split">
       <svg class="radius" viewBox="0 0 300 300" role="img" aria-label="Map showing a 5 and 10 mile ad radius around the store">
-        <rect width="300" height="300" rx="24" fill="#E9F7F1"/>
-        <path d="M0 80 H300 M0 190 H300 M70 0 V300 M200 0 V300 M0 260 L300 40" stroke="#fff" stroke-width="10"/>
-        <circle cx="150" cy="150" r="128" fill="#7FE0C2" fill-opacity=".25" stroke="#2E1440" stroke-width="3" stroke-dasharray="8 8"/>
-        <circle cx="150" cy="150" r="70" fill="#FF6B5B" fill-opacity=".22" stroke="#2E1440" stroke-width="3"/>
-        <path d="M150 112 c-20 0 -30 16 -30 28 c0 22 30 48 30 48 s30 -26 30 -48 c0 -12 -10 -28 -30 -28 z" fill="#FF6B5B" stroke="#2E1440" stroke-width="4"/>
-        <circle cx="150" cy="140" r="10" fill="#fff" stroke="#2E1440" stroke-width="4"/>
+        <rect width="300" height="300" rx="24" class="map-bg"/>
+        <path d="M0 80 H300 M0 190 H300 M70 0 V300 M200 0 V300 M0 260 L300 40" class="map-st" stroke-width="8"/>
+        <circle cx="150" cy="150" r="128" class="map-r10" stroke-width="1.5" stroke-dasharray="4 6"/>
+        <circle cx="150" cy="150" r="70" class="map-r5" stroke-width="1.5"/>
+        <path d="M150 112 c-20 0 -30 16 -30 28 c0 22 30 48 30 48 s30 -26 30 -48 c0 -12 -10 -28 -30 -28 z" class="map-pin" stroke-width="2"/>
+        <circle cx="150" cy="140" r="9" class="map-dot" stroke-width="2"/>
         <text x="150" y="98" text-anchor="middle" class="map-t">5 mi</text><text x="150" y="40" text-anchor="middle" class="map-t">10 mi</text>
       </svg>
       <div>

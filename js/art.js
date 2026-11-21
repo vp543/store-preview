@@ -1,8 +1,9 @@
 // Hand-built SVG illustrations for sample posts. No stock photos, no real-store imagery.
 (function (root) {
-  const C = { plum: '#2E1440', coral: '#FF6B5B', sun: '#FFC93C', mint: '#7FE0C2', lilac: '#E9DDFB',
-    white: '#FFFFFF', fur: '#F2D3A8', furDark: '#C98E5A', wine: '#7A1F3D', glass: '#BFE9F5', skin: '#F0C3A0', skin2: '#9C6644' };
-  const S = `stroke="${C.plum}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"`;
+  // Midnight & champagne: 'plum' is the line colour (champagne), fills are muted jewel tones.
+  const C = { plum: '#E2C68C', coral: '#8E2A3E', sun: '#C9A45E', mint: '#3E6E61', lilac: '#2A2030',
+    white: '#F3ECE4', fur: '#C7A27A', furDark: '#7D5638', wine: '#5E1328', glass: '#2C3B44', skin: '#C99B7E', skin2: '#7A5038' };
+  const S = `stroke="${C.plum}" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"`;
 
   function dog(x, y, s, clean) {
     const t = `transform="translate(${x} ${y}) scale(${s})"`;
@@ -116,7 +117,7 @@
     heart: () => `<path d="M100 170 q-80 -50 -70 -100 q10 -36 46 -30 q16 4 24 24 q8 -20 24 -24 q36 -6 46 30 q10 50 -70 100 z" fill="${C.coral}" ${S}/>${star(150, 48, 12, C.sun)}`,
   };
 
-  const BG = ['#FFE3DF', '#FFF1C7', '#D8F6EC', '#E9DDFB'];
+  const BG = ['#1E1418', '#1F1A13', '#121B19', '#191421'];
 
   function art(key, i = 0) {
     const draw = ART[key] || ART.star;
