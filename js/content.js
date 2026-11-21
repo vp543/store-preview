@@ -69,7 +69,7 @@
         recommend: 'growth',
         realWord: 'your real shelves and staff',
         heroLine: 'The shop your neighbors already love — now online.',
-        services: ['Wine', 'Craft beer', 'Spirits', 'Party orders'],
+        services: ['Wine', 'Craft beer', 'Spirits', 'Party & event orders'],
         searches: ['liquor store near me', 'wine shop {town}', 'craft beer {town}'],
         ad: { headline: 'Weekend wine picks in {town}', body: 'New arrivals and staff favorites at {store}. Stop in this weekend.', cta: 'Get directions', offer: 'Shown only to adults 21+ nearby.' },
         reel: ['Not sure what to bring tonight?', 'Staff pick of the week', 'Wine · Craft beer · Spirits', 'New arrivals this weekend', '{store} · {town}'],
@@ -83,6 +83,27 @@
           { title: 'Meet the Team', art: 'staff', caption: 'Say hi to the folks who know every bottle in the store 👋 Need a recommendation? Just ask us at {store}. {townTag}', why: 'Friendly faces make a liquor store feel like a neighborhood shop.' },
           { title: 'Gift Ideas', art: 'gift', caption: 'Hosting gift sorted 🎁 Ask us to wrap a bottle for the holidays — we’ll help you pick. {store} · {town} {townTag}', why: 'Holiday gifting is the busiest season — be the first shop people think of.' },
           { title: 'Happy Review', art: 'review', caption: 'Thank you for the kind words! ⭐⭐⭐⭐⭐ Every week we share a favorite real review here. A Google review helps neighbors find {store}. {townTag}', why: 'We only ever share real reviews you’ve received. This turns them into social proof people actually see.' },
+        ],
+        // The days a liquor store's year is built around: a post (and, on Ads Pro, an ad) lined up for each.
+        calendar: [
+          { when: 'Late November', title: 'Thanksgiving', art: 'wine', idea: 'A red, a white and a bubbly for the table, picked by your staff.' },
+          { when: 'December', title: 'Holiday gifts', art: 'gift', idea: 'Gift bottles wrapped at the counter. Last-minute host gifts sorted.' },
+          { when: 'December 31', title: 'New Year’s Eve', art: 'bubbly', idea: 'Your champagne and sparkling wine wall, shot on the day it’s fullest.' },
+          { when: 'February', title: 'Super Bowl', art: 'gameday', idea: 'Game-day beer and cooler stock-up, posted the Friday before.' },
+          { when: 'February 14', title: 'Valentine’s Day', art: 'heart', idea: 'Rosé, dessert wines and a “date night” shelf.' },
+          { when: 'March 17', title: 'St. Patrick’s Day', art: 'clover', idea: 'Irish whiskey and stout, front and center.' },
+          { when: 'May 5', title: 'Cinco de Mayo', art: 'pairing', idea: 'Tequila, mezcal and Mexican lager, with a taco-night pairing.' },
+          { when: 'Memorial Day – July 4th', title: 'Summer', art: 'summer', idea: 'Rosé, seltzers and cooler-ready cases for the shore and BBQs.' },
+          { when: 'September – October', title: 'Oktoberfest', art: 'beer', idea: 'Oktoberfest and pumpkin beers, plus local NJ craft picks.' },
+        ],
+        // Shown as a checklist on liquor pages. Plain guidance, not legal advice.
+        rules: [
+          'Your Facebook and Instagram pages set to 21+, so under-21s don’t see your posts',
+          'Every ad shown only to adults 21+ within 5–10 miles, following Meta’s alcohol ad policy',
+          'No giveaways, contests or buy-one-get-one offers, which NJ ABC restricts',
+          'Free in-store tastings promoted for guests 21+ with ID',
+          'Nothing that encourages heavy drinking or looks aimed at young people',
+          'Anything unusual is checked with you, and with NJ ABC, before it goes out',
         ],
       },
 

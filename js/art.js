@@ -106,6 +106,13 @@
     sale: () => `<path d="M40 60 h76 l50 50 l-56 56 l-50 -50 z" fill="${C.sun}" ${S}/><circle cx="66" cy="84" r="10" fill="${C.white}" ${S}/>
       <text x="112" y="132" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="34" fill="${C.plum}" transform="rotate(45 112 124)">%</text>`,
     owner: () => `${person(100, 96, 1, C.coral, C.skin2)}<path d="M150 50 q14 -18 28 0" ${S} fill="none"/><path d="M146 36 q22 -28 44 0" ${S} fill="none" opacity=".6"/>`,
+    bubbly: () => `${bottle(80, 106, 0.95, '#2F6B4F', C.sun)}${wineGlass(146, 118, 0.85, '#F3E38B')}
+      ${[[132, 52, 5], [150, 38, 4], [164, 58, 5], [120, 34, 3]].map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${C.white}" ${S} stroke-width="3"/>`).join('')}`,
+    clover: () => `<g transform="translate(100 92)">${[0, 90, 180, 270].map(a => `<g transform="rotate(${a})"><path d="M0 0 q-34 -10 -26 -36 q14 -14 26 4 q12 -18 26 -4 q8 26 -26 36 z" fill="#3FAE6A" ${S}/></g>`).join('')}</g>
+      <path d="M100 96 q6 40 26 74" fill="none" ${S} stroke-width="7"/>${star(160, 40, 12, C.sun)}`,
+    summer: () => `<circle cx="150" cy="54" r="26" fill="${C.sun}" ${S}/><path d="M150 14 v10 M150 84 v10 M110 54 h10 M180 54 h10" ${S}/>
+      <rect x="34" y="104" width="112" height="70" rx="10" fill="${C.coral}" ${S}/><rect x="28" y="90" width="124" height="20" rx="6" fill="${C.white}" ${S}/>
+      <path d="M62 104 v-28 h56 v28" fill="none" ${S}/><path d="M60 136 h60" stroke="${C.white}" stroke-width="6" stroke-linecap="round"/>`,
     heart: () => `<path d="M100 170 q-80 -50 -70 -100 q10 -36 46 -30 q16 4 24 24 q8 -20 24 -24 q36 -6 46 30 q10 50 -70 100 z" fill="${C.coral}" ${S}/>${star(150, 48, 12, C.sun)}`,
   };
 

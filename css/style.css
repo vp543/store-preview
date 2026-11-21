@@ -214,6 +214,25 @@ a { color: inherit; }
 .targets li.age { background: var(--coral); color: #fff; }
 .rules { background: #FFF1C7; border: 2px solid var(--plum); border-radius: 14px; padding: 12px 14px; font-size: 15px; }
 
+/* ---------- liquor: selling days ---------- */
+.cal { display: grid; gap: 14px; }
+@media (min-width: 700px) { .cal { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .cal { grid-template-columns: repeat(3, 1fr); } }
+.cal-card { display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: center; background: #fff; border: var(--line); border-radius: 18px; padding: 10px; box-shadow: 4px 4px 0 var(--plum); }
+.cal-art { width: 84px; height: 84px; border-radius: 12px; overflow: hidden; border: 2px solid var(--plum); }
+.cal-art svg { width: 100%; height: 100%; }
+.cal-when { margin: 0; font: 700 13px var(--body); color: var(--coral); }
+.cal-card h3 { font-size: 19px; margin: 1px 0 3px; }
+.cal-idea { margin: 0; font-size: 15px; line-height: 1.4; }
+
+/* ---------- liquor: rules ---------- */
+.rules-box { display: grid; gap: 18px; background: #FFF6DB; border: var(--line); border-radius: 24px; padding: 22px 20px; box-shadow: 8px 8px 0 var(--coral); }
+@media (min-width: 760px) { .rules-box { grid-template-columns: 120px 1fr; padding: 28px; } }
+.rules-badge { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; background: var(--coral); color: #fff;
+  border: 4px solid var(--plum); font: 800 34px var(--display); transform: rotate(-8deg); box-shadow: 4px 4px 0 var(--plum); }
+.rules-box h2 { margin-bottom: 10px; }
+.rules-box .checks { margin-top: 14px; }
+
 /* ---------- packages ---------- */
 .pkgs { display: grid; gap: 22px; }
 @media (min-width: 860px) { .pkgs { grid-template-columns: repeat(3, 1fr); } }

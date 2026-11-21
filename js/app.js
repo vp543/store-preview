@@ -30,7 +30,7 @@
     <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
     <p class="hero-kicker">Made for</p>
     <h1 class="hero-name"><span>${store}</span></h1>
-    <p class="hero-town">${p.town === L.DEFAULTS.town ? 'a local store near you' : town + ', NJ'}</p>
+    <p class="hero-town">${p.town === L.DEFAULTS.town ? ({ liquor: 'a liquor store near you', groomer: 'a groomer near you', store: 'a local store near you' })[p.type] : town + ', NJ'}</p>
     <p class="hero-lede">Here’s what one month of Facebook, Instagram and Google could look like for you. Scroll through, tap the posts, play the Reel.</p>
     <div class="hero-mini" aria-hidden="true">${T.posts.slice(0, 3).map((x, i) => `<div class="mini mini-${i}">${art(x.art, i)}</div>`).join('')}</div>
     <p class="hero-note">Sample preview. Nothing here has been posted.</p>
@@ -149,8 +149,33 @@
           <li>5–10 miles around ${town}</li>
           ${AUDIENCE[p.type].map(a => `<li${/21\+/.test(a) ? ' class="age"' : ''}>${h(a)}</li>`).join('')}
         </ul>
-        ${p.type === 'liquor' ? `<p class="rules"><b>Built for alcohol rules.</b> Your Facebook and Instagram pages are set to ages 21+, and every ad targets ages 21+ only. No giveaways, contests or buy-one-get-one offers, which NJ ABC restricts. Tastings are promoted only when they’re free, in your store and for guests 21+.</p>` : ''}
         <p class="small">You pay Meta directly for the ad budget, usually $5 to $20 a day, separate from your monthly package. I build, target and report on them every month: how many people saw the ad, clicked, called or asked for directions.</p>
+      </div>
+    </div>
+  </section>`;
+
+  const calendar = !T.calendar ? '' : `
+  <section class="block" id="calendar">
+    <div class="block-head"><h2>Your big selling days</h2>${sample}</div>
+    <p class="lead">A liquor store’s year runs on a handful of days. Each one gets a post lined up ahead of time, and on Ads Pro, an ad to people nearby.</p>
+    <div class="cal">
+      ${T.calendar.map((c, i) => `
+      <article class="cal-card">
+        <div class="cal-art">${art(c.art, i)}</div>
+        <div><p class="cal-when">${h(c.when)}</p><h3>${h(c.title)}</h3><p class="cal-idea">${t(c.idea)}</p></div>
+      </article>`).join('')}
+    </div>
+  </section>`;
+
+  const rules = !T.rules ? '' : `
+  <section class="block" id="rules">
+    <div class="rules-box">
+      <div class="rules-badge" aria-hidden="true">21+</div>
+      <div>
+        <h2>Built for New Jersey liquor rules</h2>
+        <p class="lead">Alcohol marketing comes with extra rules. Most marketers don’t know them. I follow them, so your license is never at risk.</p>
+        <ul class="checks">${T.rules.map(r => `<li>${h(r)}</li>`).join('')}</ul>
+        <p class="small">General guidance, not legal advice.</p>
       </div>
     </div>
   </section>`;
@@ -197,7 +222,7 @@
     <p>See the preview for ${others.map(o => `<a href="${h(L.buildLink('', { store: isDefault ? '' : p.store, town: p.town === L.DEFAULTS.town ? '' : p.town, type: o }))}">${typeName[o]}</a>`).join(' or ')}.</p>
   </footer>`;
 
-  document.getElementById('app').innerHTML = hero + insta + reel + google + proof + ads + packages + steps + cta;
+  document.getElementById('app').innerHTML = hero + insta + reel + calendar + google + proof + ads + rules + packages + steps + cta;
   document.getElementById('cta-bar').innerHTML =
     `<a class="btn btn-coral" href="${smsHref}">Text me</a><a class="btn btn-sun" href="${telHref}">Call</a>`;
 

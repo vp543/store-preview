@@ -1,7 +1,7 @@
 // Pure helpers shared by the page (window.Logic) and the Node tests.
 (function (root) {
   const TYPES = ['groomer', 'liquor', 'store'];
-  const DEFAULTS = { store: 'Your Store', town: 'your town', type: 'store' };
+  const DEFAULTS = { store: 'Your Store', town: 'your town', type: 'liquor' }; // liquor stores lead
 
   function collapse(s) {
     return String(s == null ? '' : s).replace(/\s+/g, ' ').trim();
@@ -17,7 +17,7 @@
     const store = cleanName(q.get('store')) || DEFAULTS.store;
     const town = cleanName(displayTown(q.get('town')), 30) || DEFAULTS.town;
     const t = collapse(q.get('type')).toLowerCase();
-    return { store, town, type: TYPES.includes(t) ? t : DEFAULTS.type };
+    return { store, town, type: !t ? DEFAULTS.type : TYPES.includes(t) ? t : 'store' };
   }
 
   function escapeHtml(s) {
