@@ -15,7 +15,7 @@
   function parseParams(search) {
     const q = new URLSearchParams(search || '');
     const store = cleanName(q.get('store')) || DEFAULTS.store;
-    const town = cleanName(q.get('town'), 30) || DEFAULTS.town;
+    const town = cleanName(displayTown(q.get('town')), 30) || DEFAULTS.town;
     const t = collapse(q.get('type')).toLowerCase();
     return { store, town, type: TYPES.includes(t) ? t : DEFAULTS.type };
   }
@@ -29,6 +29,10 @@
     if (!t || t.toLowerCase() === DEFAULTS.town) return '#ShopLocalNJ';
     const base = t.replace(/,?\s*(NJ|New Jersey)\.?$/i, '').replace(/[^A-Za-z0-9]/g, '');
     return '#' + base + 'NJ';
+  }
+
+  function displayTown(town) {
+    return collapse(town).replace(/,?\s*(NJ|New Jersey)\.?$/i, '');
   }
 
   function fill(template, vars) {
@@ -48,7 +52,7 @@
     return (content.types[type] || content.types.store).recommend;
   }
 
-  const api = { TYPES, DEFAULTS, parseParams, escapeHtml, cleanName, townTag, fill, buildLink, recommendFor };
+  const api = { TYPES, DEFAULTS, parseParams, escapeHtml, cleanName, townTag, fill, displayTown, buildLink, recommendFor };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.Logic = api;
 })(typeof window !== 'undefined' ? window : globalThis);

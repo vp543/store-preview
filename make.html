@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preview link maker</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { padding-bottom: 0; }
+    .maker { max-width: 560px; margin: 0 auto; padding: 32px 20px 48px; }
+    .maker h1 { font-size: 40px; margin-bottom: 8px; }
+    .field { display: block; margin: 18px 0 0; font-weight: 700; }
+    .field input, .field select {
+      display: block; width: 100%; margin-top: 6px; font: 500 18px var(--body); padding: 12px 14px;
+      border: var(--line); border-radius: 14px; background: #fff; color: var(--ink);
+    }
+    .out { margin-top: 24px; background: #fff; border: var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: 16px; }
+    .out code { display: block; word-break: break-all; font-size: 15px; background: var(--lilac); border-radius: 10px; padding: 10px; margin-bottom: 12px; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .row .btn { flex: 1 1 140px; font-size: 16px; }
+    button.btn { cursor: pointer; }
+    .status { min-height: 1.5em; margin: 10px 0 0; font-weight: 700; color: #1A8F5C; }
+  </style>
+</head>
+<body>
+  <main class="maker">
+    <h1>Make a preview link</h1>
+    <p class="lead">Type the store’s name and town, then copy or text the link to the owner. It opens their personalized preview.</p>
+    <label class="field">Store name
+      <input id="store" autocomplete="off" placeholder="e.g. Happy Tails Grooming" maxlength="60">
+    </label>
+    <label class="field">Town
+      <input id="town" autocomplete="off" placeholder="e.g. Boonton" maxlength="30">
+    </label>
+    <label class="field">Type of store
+      <select id="type">
+        <option value="groomer">Pet groomer</option>
+        <option value="liquor">Liquor store</option>
+        <option value="store">Any other local shop</option>
+      </select>
+    </label>
+    <div class="out">
+      <code id="link"></code>
+      <div class="row">
+        <button class="btn btn-coral" id="copy" type="button">Copy link</button>
+        <a class="btn btn-sun" id="open" target="_blank" rel="noopener">Open preview</a>
+        <a class="btn btn-ghost" id="text">Text this link</a>
+      </div>
+      <p class="status" id="status" role="status"></p>
+    </div>
+    <p class="small" style="margin-top:20px">Tip: leave the name blank for a general demo that says “Your Store”.</p>
+  </main>
+  <script src="js/logic.js"></script>
+  <script>
+    (function () {
+      const $ = id => document.getElementById(id);
+      const base = new URL('./', location.href).href;
+      function update() {
+        const store = $('store').value, town = $('town').value, type = $('type').value;
+        const link = Logic.buildLink(base, { store, town, type });
+        $('link').textContent = link;
+        $('open').href = link;
+        const msg = `Hi! I put together a quick preview of what a month of marketing could look like for ${store.trim() || 'your store'}: ${link}`;
+        $('text').href = 'sms:?&body=' + encodeURIComponent(msg);
+        $('status').textContent = '';
+      }
+      ['store', 'town', 'type'].forEach(id => $(id).addEventListener('input', update));
+      $('copy').addEventListener('click', async () => {
+        const text = $('link').textContent;
+        try { await navigator.clipboard.writeText(text); $('status').textContent = 'Link copied.'; }
+        catch (e) {
+          const r = document.createRange(); r.selectNodeContents($('link'));
+          const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+          $('status').textContent = 'Link selected. Press copy on your keyboard.';
+        }
+      });
+      update();
+    })();
+  </script>
+</body>
+</html>

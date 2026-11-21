@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your month, previewed</title>
+  <meta name="description" content="A sample month of social media and Google marketing, made for your store.">
+  <meta property="og:title" content="A sample month of marketing, made for your store">
+  <meta property="og:description" content="Posts, a Reel, local ads and Google — see what it could look like.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232E1440'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%23FF6B5B'/%3E%3Ccircle cx='44' cy='20' r='6' fill='%23FFC93C'/%3E%3C/svg%3E">
+</head>
+<body>
+  <main id="app" aria-live="polite">
+    <noscript><p class="noscript">This preview needs JavaScript turned on.</p></noscript>
+  </main>
+
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet-backdrop" data-close></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+      <button class="sheet-close" data-close aria-label="Close">×</button>
+      <div class="sheet-body" id="sheet-body"></div>
+    </div>
+  </div>
+
+  <nav class="cta-bar" id="cta-bar" aria-label="Contact"></nav>
+
+  <script src="js/logic.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
